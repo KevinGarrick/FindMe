@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FindMe</string>
+    <string name="user">Ingrese el Usuario</string>
+</resources>
