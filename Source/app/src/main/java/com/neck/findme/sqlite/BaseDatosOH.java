@@ -5,25 +5,25 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 
-import com.neck.findme.sqlite.DbStructure.CalificacionEstablecimiento;
-import com.neck.findme.sqlite.DbStructure.Direccion;
-import com.neck.findme.sqlite.DbStructure.Especialidad;
-import com.neck.findme.sqlite.DbStructure.Establecimiento;
-import com.neck.findme.sqlite.DbStructure.EstadoMunicipio;
-import com.neck.findme.sqlite.DbStructure.Giro;
-import com.neck.findme.sqlite.DbStructure.Pedido;
-import com.neck.findme.sqlite.DbStructure.PedidoProductoServicio;
-import com.neck.findme.sqlite.DbStructure.Persona;
-import com.neck.findme.sqlite.DbStructure.ProductoServicio;
-import com.neck.findme.sqlite.DbStructure.Promocion;
-import com.neck.findme.sqlite.DbStructure.PromocionPersona;
-import com.neck.findme.sqlite.DbStructure.TipoProducto;
-import com.neck.findme.sqlite.DbStructure.Usuario;
+import com.neck.findme.sqlite.EstructuraBd.CalificacionEstablecimiento;
+import com.neck.findme.sqlite.EstructuraBd.Direccion;
+import com.neck.findme.sqlite.EstructuraBd.Especialidad;
+import com.neck.findme.sqlite.EstructuraBd.Establecimiento;
+import com.neck.findme.sqlite.EstructuraBd.EstadoMunicipio;
+import com.neck.findme.sqlite.EstructuraBd.Giro;
+import com.neck.findme.sqlite.EstructuraBd.Pedido;
+import com.neck.findme.sqlite.EstructuraBd.PedidoProductoServicio;
+import com.neck.findme.sqlite.EstructuraBd.Persona;
+import com.neck.findme.sqlite.EstructuraBd.ProductoServicio;
+import com.neck.findme.sqlite.EstructuraBd.Promocion;
+import com.neck.findme.sqlite.EstructuraBd.PromocionPersona;
+import com.neck.findme.sqlite.EstructuraBd.TipoProducto;
+import com.neck.findme.sqlite.EstructuraBd.Usuario;
 
 /**
  * Created by Kevin on 22/08/2016.
  */
-public class DB extends SQLiteOpenHelper {
+public class BaseDatosOH extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BASE_DATOS = "findme.neck";
 
@@ -31,7 +31,7 @@ public class DB extends SQLiteOpenHelper {
 
     private final Context contexto;
 
-    interface Tablas {
+    public interface Tablas {
         String CALIFICACION_ESTABLECIMIENTO = "calificacion_establecimiento";
         String DIRECCION = "direccion";
         String ESPECIALIDAD = "especialidad";
@@ -48,7 +48,7 @@ public class DB extends SQLiteOpenHelper {
         String USUARIO = "usuario";
     }
 
-    interface Referencias {
+    public interface Referencias {
         String ID_DIRECCION = String.format("REFERENCES %s(%s)", Tablas.DIRECCION, Direccion.ID);
         String ID_ESPECIALIDAD = String.format("REFERENCES %s(%s)", Tablas.ESPECIALIDAD, Especialidad.ID);
         String ID_ESTABLECIMIENTO = String.format("REFERENCES %s(%s)", Tablas.ESTABLECIMIENTO, Establecimiento.ID);
@@ -62,7 +62,7 @@ public class DB extends SQLiteOpenHelper {
         String ID_USUARIO = String.format("REFERENCES %s(%s)", Tablas.USUARIO, Usuario.ID);
     }
 
-    public DB(Context contexto) {
+    public BaseDatosOH(Context contexto) {
         super(contexto, NOMBRE_BASE_DATOS, null, VERSION_ACTUAL);
         this.contexto = contexto;
     }
@@ -127,11 +127,11 @@ public class DB extends SQLiteOpenHelper {
                         "%s VARCHAR(100) NOT NULL, " +
                         "%s VARCHAR(100) NOT NULL, " +
                         "%s VARCHAR(100), " +
-                        "%s INTEGER NOT NULL %s, " +
+                        "%s INTEGER %s, " +
                         "%s INTEGER NOT NULL %s )",
                 Tablas.PERSONA,
                 Persona.ID,
-                Persona.NOMBE,
+                Persona.NOMBRE,
                 Persona.P_APELLIDO,
                 Persona.S_APELLIDO,
                 Persona.DIRECCION_ID, Referencias.ID_DIRECCION,
@@ -212,7 +212,7 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL(String.format("CREATE TABLE %s(" +
                         "%s INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                         "%s DATETIME NOT NULL, " +
-                        "%s DECIMAL(5,2)" +
+                        "%s DECIMAL(5,2)," +
                         "%s INTEGER NOT NULL %s, " +
                         "%s INTEGER NOT NULL %s )",
                 Tablas.PEDIDO,

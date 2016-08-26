@@ -3,32 +3,32 @@ package com.neck.findme.sqlite;
 /**
  * Created by Kevin on 20/08/2016.
  */
-public class DbStructure {
+public class EstructuraBd {
 
-    interface ColumnasCalificacionEstablecimiento {
+    public interface ColumnasCalificacionEstablecimiento {
         String CALIFICACION = "calificacion";
         String ESTABLECIMIENTO_ID = "establecimiento_id";
         String USUARIO_ID = "usuario_id";
         String OBSERVACIONES = "observaciones";
     }
 
-    interface ColumnasUsuario {
+    public interface ColumnasUsuario {
         String ID = "id";
         String EMAIL = "email";
         String CONTRASENIA = "contrasenia";
         String SAL = "sal";
     }
 
-    interface ColumnasPersona {
+    public interface ColumnasPersona {
         String ID = "id";
-        String NOMBE = "nombre";
+        String NOMBRE = "nombre";
         String P_APELLIDO = "p_apellido";
         String S_APELLIDO = "s_apellido";
         String DIRECCION_ID = "direccion_id";
         String USUARIO_ID = "usuario_id";
     }
 
-    interface ColumnasEstablecimiento {
+    public interface ColumnasEstablecimiento {
         String ID = "id";
         String NOMBRE = "nombre";
         String TELEFONO = "telefono";
@@ -41,7 +41,7 @@ public class DbStructure {
         String ESPECIALIDAD_ID = "especialidad_id";
     }
 
-    interface ColumnasDireccion {
+    public interface ColumnasDireccion {
         String ID = "id";
         String COLONIA = "colonia";
         String CALLE = "calle";
@@ -54,18 +54,18 @@ public class DbStructure {
         String MUNICIPIO = "municipio_id";
     }
 
-    interface ColumnasGiro {
+    public interface ColumnasGiro {
         String ID = "id";
         String DSC = "dsc";
     }
 
-    interface ColumnasEstadoMunicipio {
+    public interface ColumnasEstadoMunicipio {
         String ID = "id";
         String DSC = "dsc";
         String PARENT_ID = "parent_id";
     }
 
-    interface ColumnasPedido {
+    public interface ColumnasPedido {
         String ID = "id";
         String FECHA_HORA = "fecha_hora";
         String TOTAL = "total";
@@ -73,13 +73,13 @@ public class DbStructure {
         String PERSONA_ID = "persona_id";
     }
 
-    interface ColumnasEspecialidad {
+    public interface ColumnasEspecialidad {
         String ID = "id";
         String DSC = "dsc";
         String GIRO_ID = "giro_id";
     }
 
-    interface ColumnasProductoServicio {
+    public interface ColumnasProductoServicio {
         String ID = "id";
         String PRODUCTO_SERVICIO = "producto_servicio";
         String DESCRIPCION = "descripcion";
@@ -88,18 +88,18 @@ public class DbStructure {
         String ESTABLECIMIENTO_ID = "establecimiento_id";
     }
 
-    interface ColumnasPedidoProductoServicio {
+    public interface ColumnasPedidoProductoServicio {
         String PEDIDO_ID = "pedido_id";
         String PRODUCTO_SERVICIO_ID = "producto_servicio_id";
         String CANTIDAD = "cantidad";
     }
 
-    interface ColumnasTipoProducto {
+    public interface ColumnasTipoProducto {
         String ID = "id";
         String DSC = "dsc";
     }
 
-    interface ColumnasPromocion {
+    public interface ColumnasPromocion {
         String ID = "id";
         String FECHA_INICIO = "fecha_inicio";
         String FECHA_FIN = "fecha_fin";
@@ -107,11 +107,10 @@ public class DbStructure {
         String ESTABLECIMIENTO_ID = "establecimiento_id";
     }
 
-    interface ColumnasPromocionPersona {
+    public interface ColumnasPromocionPersona {
         String PROMOCION_ID = "promocion_id";
         String PERSONA_ID = "persona_id";
     }
-
     public static class CalificacionEstablecimiento implements ColumnasCalificacionEstablecimiento{
 
     }
@@ -155,7 +154,7 @@ public class DbStructure {
 
     }
 
-    private DbStructure() {
+    private EstructuraBd() {
     }
 
 }
