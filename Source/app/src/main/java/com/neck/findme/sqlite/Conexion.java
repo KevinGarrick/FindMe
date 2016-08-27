@@ -45,24 +45,21 @@ public class Conexion {
         return constructor.query(bd, columnas, seleccion, seleccionArgs, null, null, null);
     }
 
-    public void obtenerPorConsulta(String consulta, String[] argumentos) {
+    public void ejecutarConsulta(String consulta, String... argumentos) {
         bd = baseDatosOH.getReadableDatabase();
-        bd.execSQL(consulta, argumentos);
-    }
-
-    public void obtenerPorConsulta(String consulta) {
-        bd = baseDatosOH.getReadableDatabase();
-        obtenerPorConsulta(consulta, null);
-    }
-
-    public Cursor ejecutarConsulta(String consulta, String... argumentos) {
-        bd = baseDatosOH.getReadableDatabase();
-
-        return bd.rawQuery(String.format(consulta,argumentos), null);
+        bd.execSQL(String.format(consulta,argumentos), null);
     }
 
     public void ejecutarConsulta(String consulta) {
+        obtenerPorConsulta(consulta, null);
+    }
+
+    public Cursor obtenerPorConsulta(String consulta, String... argumentos) {
         bd = baseDatosOH.getReadableDatabase();
+        return bd.rawQuery(String.format(consulta,argumentos), null);
+    }
+
+    public void obtenerPorConsulta(String consulta) {
         ejecutarConsulta(consulta, null);
     }
 

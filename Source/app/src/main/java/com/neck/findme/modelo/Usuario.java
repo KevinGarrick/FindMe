@@ -8,6 +8,7 @@ import android.util.Log;
 import com.neck.findme.sqlite.Conexion;
 import com.neck.findme.sqlite.BaseDatosOH.Tablas;
 import com.neck.findme.modelo.Persona;
+import com.neck.findme.sqlite.EstructuraBd;
 import com.neck.findme.sqlite.EstructuraBd.ColumnasUsuario;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class Usuario {
         ArrayList<com.neck.findme.entidad.Usuario> Usuarios = new ArrayList<>();
         conexion = Conexion.obtenerConexion(contexto);
         try {
-            Cursor cursor = conexion.ejecutarConsulta("select * from %s", Tablas.USUARIO);
+            Cursor cursor = conexion.obtenerPorConsulta("select * from %s", Tablas.USUARIO);
             if (cursor != null){
                 while (cursor.moveToNext()){
                     com.neck.findme.entidad.Usuario usuario= new com.neck.findme.entidad.Usuario(cursor.getInt(0),
@@ -68,5 +69,21 @@ public class Usuario {
         valores.put(ColumnasUsuario.EMAIL,usuario+" insertado");
         valores.put(ColumnasUsuario.CONTRASENIA,contrasena);
         return valores;
+    }
+
+    public com.neck.findme.entidad.Persona iniciarSesion(Context contexto, String usuario, String contrasena){
+        com.neck.findme.entidad.Persona persona = null;
+        conexion = Conexion.obtenerConexion(contexto);
+        Cursor cursor = conexion.obtenerPorConsulta("Select * from %s u where %s = '%s' and %s = '%s'",
+                Tablas.USUARIO,
+                EstructuraBd.Usuario.ID,
+                usuario,
+                EstructuraBd.Usuario.CONTRASENIA,
+                contrasena);
+        if(cursor != null && cursor.moveToNext()){
+            Persona modeloPersona = new Persona();
+            persona = modeloPersona.obtenerPorIdUsuario(contexto,cursor.getInt(0));
+        }
+        return persona;
     }
 }
