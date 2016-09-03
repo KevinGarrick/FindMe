@@ -1,46 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/findme_bg"
+    android:foregroundTint="#050505"
+    android:foregroundTintMode="src_over"
+    android:scaleType="matrix"
     tools:context="com.neck.findme.LoginActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/uno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/user"
-                android:background="@color/limeGreen"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/user"
-                android:background="@color/limeGreen"/>
-        </LinearLayout>
-    </LinearLayout>
 
-</RelativeLayout>
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#000000"
+        android:backgroundTintMode="src_in"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.15"></RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/fullscreen_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_user"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:hint="@string/user_hint"
+                    android:alpha="0.8"
+                    android:background="@drawable/top_radius" />
+
+                <EditText
+                    android:id="@+id/et_pswd"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="@string/pwd_hint"
+                    android:background="#ffffff"
+                    android:alpha="0.8"
+                    android:layout_marginTop="0dp"
+                    android:layout_margin="0dp" />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ingresar"
+                    android:background="@drawable/button_login"
+                    android:textColor="@color/fAccentColor" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.15"></RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>
