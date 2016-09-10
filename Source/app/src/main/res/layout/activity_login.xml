@@ -2,9 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/findme_bg"
-    android:foregroundTint="#050505"
-    android:foregroundTintMode="src_over"
+    android:background="@color/fColorPrimaryDark"
+
     android:scaleType="matrix"
     tools:context="com.neck.findme.LoginActivity">
 
@@ -18,8 +17,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#000000"
-        android:backgroundTintMode="src_in"
         android:fitsSystemWindows="true">
 
         <LinearLayout
@@ -27,15 +24,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
-
+            
             <RelativeLayout
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.15"></RelativeLayout>
-
+            
             <LinearLayout
                 android:id="@+id/fullscreen_content"
                 android:layout_width="0dp"
@@ -43,13 +39,18 @@
                 android:layout_weight=".7"
                 android:layout_gravity="center"
                 android:orientation="vertical">
-
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo150"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"/>
                 <EditText
                     android:id="@+id/et_user"
                     android:layout_width="fill_parent"
                     android:layout_height="40dp"
                     android:hint="@string/user_hint"
-                    android:alpha="0.8"
+                    android:alpha="0.5"
                     android:background="@drawable/top_radius" />
 
                 <EditText
@@ -58,7 +59,7 @@
                     android:layout_height="40dp"
                     android:hint="@string/pwd_hint"
                     android:background="#ffffff"
-                    android:alpha="0.8"
+                    android:alpha="0.5"
                     android:layout_marginTop="0dp"
                     android:layout_margin="0dp" />
 
