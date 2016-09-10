@@ -12,4 +12,9 @@
     <string name="facturas_item">Facturas</string>
     <string name="log_out_item">Cerrar Sesión</string>
     <string name="configuracion_item">Configuración</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="registrate">Registrate aquí</string>
+    <string name="title_activity_registro">registro</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="hint_nombre">Nombre</string>
 </resources>

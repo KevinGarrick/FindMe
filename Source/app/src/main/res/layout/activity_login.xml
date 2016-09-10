@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fColorPrimaryDark"
+    android:background="@color/fAccentColor"
 
     android:scaleType="matrix"
     tools:context="com.neck.findme.LoginActivity">
@@ -31,7 +31,7 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="0.15"></RelativeLayout>
-            
+
             <LinearLayout
                 android:id="@+id/fullscreen_content"
                 android:layout_width="0dp"
@@ -67,10 +67,17 @@
                     android:id="@+id/btn_login"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ingresar"
+                    android:text="@string/btnIngresar"
                     android:background="@drawable/button_login"
                     android:textColor="@color/fAccentColor" />
-
+                <TextView
+                    android:id="@+id/registrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/registrate"
+                    android:shadowColor="@color/fColorPrimaryDark"
+                    />
             </LinearLayout>
 
             <RelativeLayout

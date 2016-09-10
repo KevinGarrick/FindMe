@@ -11,7 +11,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.FindMe" parent="Base.AppTheme"/>
+    <style name="Theme.FindMe" parent="Base.AppTheme" />
 
     <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
@@ -21,6 +21,10 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@color/window_background</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>
