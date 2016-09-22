@@ -27,7 +27,7 @@ public class BaseDatosOH extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BASE_DATOS = "findme.neck";
 
-    private static final int VERSION_ACTUAL = 1;
+    private static final int VERSION_ACTUAL = 2;
 
     private final Context contexto;
 
@@ -82,7 +82,7 @@ public class BaseDatosOH extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(String.format("CREATE TABLE %s ( " +
-                        "%s INTEGER PRIMARY KEY NOT NULL, " +
+                        "%s INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                         "%s VARCHAR(150) NOT NULL, " +
                         "%s VARCHAR(20) NOT NULL)",
                 Tablas.USUARIO,

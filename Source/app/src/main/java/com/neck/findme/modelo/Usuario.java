@@ -43,7 +43,7 @@ public class Usuario {
         }finally {
             conexion.getDb().endTransaction();
         }
-        return true;
+        return ret;
     }
     public ArrayList<com.neck.findme.entidad.Usuario> obtenerUsuarios(Context contexto){
         ArrayList<com.neck.findme.entidad.Usuario> Usuarios = new ArrayList<>();
@@ -66,7 +66,7 @@ public class Usuario {
 
     public ContentValues obtenerValores(String usuario,String contrasena){
         ContentValues valores = new ContentValues();
-        valores.put(ColumnasUsuario.EMAIL,usuario+" insertado");
+        valores.put(ColumnasUsuario.EMAIL,usuario);
         valores.put(ColumnasUsuario.CONTRASENIA,contrasena);
         return valores;
     }
@@ -75,8 +75,9 @@ public class Usuario {
         com.neck.findme.entidad.Persona persona = null;
         conexion = Conexion.obtenerConexion(contexto);
         Cursor cursor = conexion.obtenerPorConsulta("Select * from %s u where %s = '%s' and %s = '%s'",
+                //Log();
                 Tablas.USUARIO,
-                EstructuraBd.Usuario.ID,
+                EstructuraBd.Usuario.EMAIL,
                 usuario,
                 EstructuraBd.Usuario.CONTRASENIA,
                 contrasena);

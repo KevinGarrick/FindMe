@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/reg_usuario"
+                        android:id="@+id/reg_email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="E-mail"

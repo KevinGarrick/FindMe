@@ -1,5 +1,7 @@
 package com.neck.findme.Utilidades;
 
+import android.widget.EditText;
+
 import java.util.regex.Pattern;
 
 /**
@@ -10,5 +12,8 @@ public class Utils {
     {
         Pattern patron = Pattern.compile(regex);
         return patron.matcher(toValidate).matches();
+    }
+    public static String getValue(EditText et){
+        return et.getText().toString().trim();
     }
 }

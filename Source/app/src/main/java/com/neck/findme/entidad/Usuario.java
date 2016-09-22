@@ -33,9 +33,10 @@ public class Usuario {
 
     String contrasenia;
 
-    public Usuario(int id, String email, String contrasenia){
+    public Usuario(int id,String email, String contrasenia){
         this.id = id;
         this.email=email;
         this.contrasenia=contrasenia;
     }
+    public Usuario(){}
 }
