@@ -50,7 +50,9 @@
                         android:id="@+id/reg_nombre"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/hint_nombre" />
+                        android:hint="@string/hint_nombre"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -62,7 +64,9 @@
                         android:id="@+id/reg_papellido"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Primer Apellido" />
+                        android:hint="Primer Apellido"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -74,7 +78,9 @@
                         android:id="@+id/reg_sapellido"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Segundo Apellido" />
+                        android:hint="Segundo Apellido"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -87,7 +93,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="E-mail"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -100,7 +107,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="Contraseña"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:maxLines="1"/>
 
                 </android.support.design.widget.TextInputLayout>
 

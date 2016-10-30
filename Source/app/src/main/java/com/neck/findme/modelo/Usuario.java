@@ -71,8 +71,9 @@ public class Usuario {
         return valores;
     }
 
-    public com.neck.findme.entidad.Persona iniciarSesion(Context contexto, String usuario, String contrasena){
+    public com.neck.findme.entidad.Usuario iniciarSesion(Context contexto, String usuario, String contrasena){
         com.neck.findme.entidad.Persona persona = null;
+        com.neck.findme.entidad.Usuario user= null;
         conexion = Conexion.obtenerConexion(contexto);
         Cursor cursor = conexion.obtenerPorConsulta("Select * from %s u where %s = '%s' and %s = '%s'",
                 //Log();
@@ -82,9 +83,10 @@ public class Usuario {
                 EstructuraBd.Usuario.CONTRASENIA,
                 contrasena);
         if(cursor != null && cursor.moveToNext()){
+            user = new com.neck.findme.entidad.Usuario(cursor.getInt(0),cursor.getString(1),cursor.getString(2));
             Persona modeloPersona = new Persona();
-            persona = modeloPersona.obtenerPorIdUsuario(contexto,cursor.getInt(0));
+            user.setPersona(modeloPersona.obtenerPorIdUsuario(contexto,cursor.getInt(0)));
         }
-        return persona;
+        return user;
     }
 }

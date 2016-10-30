@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/listPreferredItemHeight"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp">
+
+    <ImageView
+        android:id="@+id/iv_img_est"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="58dp"
+        android:text="@string/hint_nombre"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?attr/textAppearanceListItem"
+        tools:text="Taqueria Selene"
+        android:layout_marginStart="58dp"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="56dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Direccion:" />
+        <TextView
+            android:id="@+id/tv_direccion_est"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Calle Río Lerma 107, Colinas del Lago, 54744 Cuautitlán Izcalli, Méx." />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Teléfono:" />
+        <TextView
+            android:id="@+id/tv_teléfono_est"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="01 55 5881 0346" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_menu"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight=".5"
+                android:layout_marginLeft="-1dp"
+                android:text="Menú"
+                android:background="@drawable/button_app_left"
+                android:textColor="@color/fAccentColor"/>
+            <Button
+                android:id="@+id/btn_geoloc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:text="Ir"
+                android:background="@drawable/button_app_right"
+                android:textColor="@color/fAccentColor"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

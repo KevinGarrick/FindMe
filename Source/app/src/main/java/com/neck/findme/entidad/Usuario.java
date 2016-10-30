@@ -4,9 +4,18 @@ package com.neck.findme.entidad;
  * Created by Kevin on 23/08/2016.
  */
 public class Usuario {
-    int id;
-    String email;
+    private int id;
+    private String email;
 
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    private Persona persona;
     public String getContrasenia() {
         return contrasenia;
     }

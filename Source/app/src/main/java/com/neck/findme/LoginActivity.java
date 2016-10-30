@@ -16,6 +16,7 @@ import com.neck.findme.entidad.Persona;
 import com.neck.findme.modelo.Usuario;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LoginActivity extends Activity {
     EditText user;
@@ -40,9 +41,13 @@ public class LoginActivity extends Activity {
                     users += user.getEmail()+":"+user.getContrasenia() +";";
                 }
                 registro.setText(users);*/
-                Persona p = u.iniciarSesion(view.getContext(), Utils.getValue(user), Utils.getValue(pass));
-                if (p != null) {
+                com.neck.findme.entidad.Usuario usuario = u.iniciarSesion(view.getContext(), Utils.getValue(user), Utils.getValue(pass));
+                if (usuario != null) {
+                    HashMap<String,String> hmUsuario = new HashMap<String, String>();
+                    hmUsuario.put("nombre",usuario.getPersona().getNombre()+ " " + usuario.getPersona().getpApellido()+" "+usuario.getPersona().getsApellido());
+                    hmUsuario.put("email",usuario.getEmail());
                     Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                    intent.putExtra("usuario",hmUsuario);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Usario y/o contraseñas invalidos.", Toast.LENGTH_LONG).show();

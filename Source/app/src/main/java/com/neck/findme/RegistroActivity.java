@@ -33,35 +33,35 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         tilNombre = (TextInputLayout) findViewById(R.id.til_nombre);
         etNombre = (EditText) findViewById(R.id.reg_nombre);
-        setETChangeListener(etNombre,"nombre");
+        setETChangeListener(etNombre, "nombre");
 
         tilPapellido = (TextInputLayout) findViewById(R.id.til_papellido);
         etPape = (EditText) findViewById(R.id.reg_papellido);
-        setETChangeListener(etPape,"primero");
+        setETChangeListener(etPape, "primero");
 
         tilSapellido = (TextInputLayout) findViewById(R.id.til_sapellido);
         etSape = (EditText) findViewById(R.id.reg_sapellido);
-        setETChangeListener(etSape,"segundo");
+        setETChangeListener(etSape, "segundo");
 
-        tilEmail = (TextInputLayout)findViewById(R.id.til_email);
-        etEmail = (EditText)findViewById(R.id.reg_email);
-        setETChangeListener(etEmail,"correo");
+        tilEmail = (TextInputLayout) findViewById(R.id.til_email);
+        etEmail = (EditText) findViewById(R.id.reg_email);
+        setETChangeListener(etEmail, "correo");
 
-        tilPass = (TextInputLayout)findViewById(R.id.til_pass);
-        etPass = (EditText)findViewById(R.id.reg_password);
-        setETChangeListener(etPass,"pass");
+        tilPass = (TextInputLayout) findViewById(R.id.til_pass);
+        etPass = (EditText) findViewById(R.id.reg_password);
+        setETChangeListener(etPass, "pass");
 
-        btnRegistrarse =(Button)findViewById(R.id.btn_registro);
+        btnRegistrarse = (Button) findViewById(R.id.btn_registro);
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isValidForm()){
+                if (isValidForm()) {
                     com.neck.findme.modelo.Usuario u = new com.neck.findme.modelo.Usuario();
-                    if(u.crearNuevo(view.getContext(),Utils.getValue(etEmail),Utils.getValue(etPass),Utils.getValue(etNombre),Utils.getValue(etPape),Utils.getValue(etSape))){
+                    if (u.crearNuevo(view.getContext(), Utils.getValue(etEmail), Utils.getValue(etPass), Utils.getValue(etNombre), Utils.getValue(etPape), Utils.getValue(etSape))) {
                         Toast.makeText(getApplicationContext(), "Usuario registrado exitosamente", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(view.getContext(),LoginActivity.class);
+                        Intent intent = new Intent(view.getContext(), LoginActivity.class);
                         startActivity(intent);
-                    }else{
+                    } else {
                         Toast.makeText(getApplicationContext(), "Hubo un error al registrar el usuario intente mas tarde", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -70,7 +70,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     protected boolean isValidForm() {
-        return isValidName() && isValidPApellido() && isValidSApellido()&&esCorreoValido();
+        return isValidName() && isValidPApellido() && isValidSApellido() && esCorreoValido();
     }
 
     protected boolean isValidName() {
@@ -114,7 +114,8 @@ public class RegistroActivity extends AppCompatActivity {
         }
         return ret;
     }
-    private boolean esCorreoValido(){
+
+    private boolean esCorreoValido() {
         boolean ret = true;
         if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.getText().toString()).matches()) {
             tilEmail.setErrorEnabled(true);
@@ -126,7 +127,8 @@ public class RegistroActivity extends AppCompatActivity {
         }
         return ret;
     }
-    private boolean isValidPass(){
+
+    private boolean isValidPass() {
         boolean ret = true;
         if (etPass.getText().toString().length() < 6 || etPass.getText().toString().length() > 20) {
             tilPass.setErrorEnabled(true);
@@ -140,12 +142,12 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
 
-    protected void setETChangeListener(EditText et, final String action){
+    protected void setETChangeListener(EditText et, final String action) {
         et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (!hasFocus) {
-                    switch(action){
+                    switch (action) {
                         case "nombre":
                             isValidName();
                             break;
@@ -168,4 +170,8 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        //do nothing
+    }
 }
