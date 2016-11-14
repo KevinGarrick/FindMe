@@ -27,7 +27,7 @@ public class BaseDatosOH extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BASE_DATOS = "findme.neck";
 
-    private static final int VERSION_ACTUAL = 3;
+    private static final int VERSION_ACTUAL = 4;
 
     private final Context contexto;
 
@@ -252,12 +252,16 @@ public class BaseDatosOH extends SQLiteOpenHelper {
                 PromocionPersona.PROMOCION_ID, Referencias.ID_PROMOCION));
 
         insetCatalogs(db);
+        insertLocalidades(db);
+        insertDirecciones(db);
+        insertLocales(db);
+
+
     }
     private void insetCatalogs(SQLiteDatabase db){
         db.execSQL("insert or ignore into giro(id, dsc) values(1,'Alimenticio')");
         db.execSQL("insert or ignore into especialidad values(1,'Comida Corrida',1)");
-        db.execSQL("insert or ignore into especialidad values(2,'Tacos',1)");
-        db.execSQL("insert or ignore into especialidad values(3,'Antojitos Mexicanos',1)");
+        db.execSQL("insert or ignore into especialidad values(2,'Tacos y Antojitos Mexicanos',1)");
         db.execSQL("insert or ignore into especialidad values(4,'Comida China',1)");
         db.execSQL("insert or ignore into especialidad values(5,'Comida Japonesa',1)");
         db.execSQL("insert or ignore into especialidad values(6,'Fast Food',1)");
@@ -265,15 +269,15 @@ public class BaseDatosOH extends SQLiteOpenHelper {
         db.execSQL("insert or ignore into especialidad values(8,'Ensaladas',1)");
         db.execSQL("insert or ignore into especialidad values(9,'Alitas',1)");
         db.execSQL("insert or ignore into especialidad values(10,'Pizzas',1)");
-        db.execSQL("insert or ignore into especialidad values(11,'Helados',1)");
         db.execSQL("insert or ignore into especialidad values(12,'Comida Italiana',1)");
         db.execSQL("insert or ignore into especialidad values(13,'Crepas',1)");
         db.execSQL("insert or ignore into especialidad values(14,'Postres',1)");
-        db.execSQL("insert or ignore into especialidad values(14,'Postres',1)");
+
         //db.execSQL("insert or ignore into ");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + Tablas.ESPECIALIDAD);
         /*db.execSQL("DROP TABLE IF EXISTS " + Tablas.CALIFICACION_ESTABLECIMIENTO);
         db.execSQL("DROP TABLE IF EXISTS " + Tablas.DIRECCION);
         //db.execSQL("DROP TABLE IF EXISTS " + Tablas.ESPECIALIDAD);

@@ -3,13 +3,14 @@ package com.neck.findme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.neck.findme.fragments.EspecialityFragment;
 import com.neck.findme.fragments.StoresFragment;
 
 import java.util.HashMap;
@@ -118,6 +120,7 @@ public class HomeActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -126,18 +129,37 @@ public class HomeActivity extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putString(StoresFragment.ARG_SECTION_TITLE, title);
 
-        Fragment fragment = StoresFragment.newInstance(title);
-        fragment.setArguments(args);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.main_content, fragment)
-                .commit();
+        Fragment fragment = EspecialityFragment.newInstance(title);
+        if(title.toLowerCase().contains("cerrar")){
+            Intent intent = new Intent(this.getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+        }
+        else{
+            fragment.setArguments(args);
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, fragment).addToBackStack(fragment.getTag())
+                    .commit();
 
-        drawerLayout.closeDrawers(); // Cerrar drawer
 
-        setTitle(title); // Setear título actual
+            drawerLayout.closeDrawers(); // Cerrar drawer
 
+            setTitle(title); // Setear título actual
+        }
+
+
+    }
+    @Override
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            /*Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();*/
+        }
     }
 
 }

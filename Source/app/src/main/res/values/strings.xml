@@ -5,8 +5,8 @@
     <string name="user">Ingrese el Usuario</string>
     <!-- string items menu-->
     <string name="action_settings">Settings</string>
-    <string name="home_item">Home</string>
-    <string name="productos_item">Locales</string>
+    <string name="home_item">Especialidades</string>
+    <string name="productos_item">Promociones</string>
     <string name="compras_item">Pedidos</string>
     <string name="ordenes_item">Ordenes</string>
     <string name="facturas_item">Facturas</string>

@@ -170,8 +170,5 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        //do nothing
-    }
+
 }
