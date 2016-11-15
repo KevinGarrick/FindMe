@@ -3,8 +3,8 @@ package com.neck.findme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -136,10 +136,10 @@ public class HomeActivity extends AppCompatActivity {
         }
         else{
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment).addToBackStack(fragment.getTag())
+                    .replace(R.id.main_content, fragment).addToBackStack(null)
                     .commit();
 
 
@@ -150,11 +150,11 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
-    @Override
+   @Override
     public void onBackPressed(){
-        FragmentManager fm = getFragmentManager();
-        if (fm.getBackStackEntryCount() > 0) {
-            Log.i("MainActivity", "popping backstack");
+        FragmentManager fm = getSupportFragmentManager();
+        if (fm.getBackStackEntryCount() > 1) {
+           //fm.popBackStackImmediate();
             fm.popBackStack();
         } else {
             /*Log.i("MainActivity", "nothing on backstack, calling super");

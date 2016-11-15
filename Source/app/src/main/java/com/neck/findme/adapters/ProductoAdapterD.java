@@ -48,9 +48,9 @@ public class ProductoAdapterD extends ArrayAdapter<DummyProducto> {
 
         // Lead actual.
         final DummyProducto dProd = getItem(position);
-
+        imgProd.setScaleType(ImageView.ScaleType.CENTER_CROP);
         // Setup.
-        Glide.with(getContext()).load(dProd.getImg()).override(800, 300).into(imgProd);
+        Glide.with(getContext()).load(dProd.getImg()).into(imgProd);
         title.setText(dProd.getProductoServicio());
         left.setText(dProd.getLeftProducts());
         right.setText(dProd.getRightProducts());

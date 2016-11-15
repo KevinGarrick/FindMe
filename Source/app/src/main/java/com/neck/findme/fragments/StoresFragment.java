@@ -1,7 +1,8 @@
 package com.neck.findme.fragments;
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,6 @@ public class StoresFragment extends Fragment {
                              Bundle savedInstanceState) {
         Bundle bundle = this.getArguments();
         View view = inflater.inflate(R.layout.fragment_stores, container, false);
-        Especialidad mEsp = new Especialidad();
         eList = (ListView)view.findViewById(R.id.list_establecimientos);
         // Inicializar el adaptador con la fuente de datos.
 
@@ -61,13 +61,7 @@ public class StoresFragment extends Fragment {
                 EstablecimientosRepo.getInstance(bundle.getInt("eId")).getEstablecimientos());
         //Relacionando la lista con el adaptador
         eList.setAdapter(eAdapter);
-        eList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                com.neck.findme.entidad.DumyEstablecimiento currentEstablecimiento = eAdapter.getItem(position);
 
-            }
-        });
 
         return view;
     }

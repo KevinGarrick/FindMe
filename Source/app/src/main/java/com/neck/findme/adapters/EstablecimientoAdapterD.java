@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.neck.findme.HomeActivity;
 import com.neck.findme.R;
 import com.neck.findme.entidad.DumyEstablecimiento;
 import com.neck.findme.fragments.ProductosFragment;
@@ -46,7 +47,7 @@ public class EstablecimientoAdapterD extends ArrayAdapter<DumyEstablecimiento> {
                     parent,
                     false);
         }
-        fragmentManager = ((Activity)getContext()).getFragmentManager();
+        fragmentManager = ((HomeActivity)getContext()).getSupportFragmentManager();
         // Referencias UI.
         ImageView imgEst = (ImageView) convertView.findViewById(R.id.iv_img_est);
         TextView nombre = (TextView) convertView.findViewById(R.id.tv_name_est);
@@ -79,11 +80,11 @@ public class EstablecimientoAdapterD extends ArrayAdapter<DumyEstablecimiento> {
             public void onClick(View view) {
                 Bundle args = new Bundle();
                 Fragment fragment = new ProductosFragment();
-                args.putInt("pId",2);
+                args.putInt("eId",dEst.getEstId());
                 fragment.setArguments(args);
                 fragmentManager
                         .beginTransaction()
-                        .replace(R.id.main_content, fragment)
+                        .replace(R.id.main_content, fragment).addToBackStack(null)
                         .commit();
             }
         });
