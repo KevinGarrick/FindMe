@@ -8,13 +8,14 @@
     android:paddingBottom="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="8dp">
-
+    android:paddingTop="8dp"
+    android:background="#fff">
     <ImageView
         android:id="@+id/iv_img_esp"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        tools:background="@drawable/cutlery"/>
 
     <TextView
         android:id="@+id/tv_name"
@@ -26,4 +27,12 @@
         android:text="@string/hint_nombre"
         android:textAppearance="?attr/textAppearanceListItem"
         tools:text="Tacos" />
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="25dp"
+        android:background="@drawable/chevron_derecha"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

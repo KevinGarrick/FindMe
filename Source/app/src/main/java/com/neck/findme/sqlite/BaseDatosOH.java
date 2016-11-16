@@ -27,7 +27,7 @@ public class BaseDatosOH extends SQLiteOpenHelper {
 
     private static final String NOMBRE_BASE_DATOS = "findme.neck";
 
-    private static final int VERSION_ACTUAL = 4;
+    private static final int VERSION_ACTUAL = 6;
 
     private final Context contexto;
 
@@ -264,13 +264,10 @@ public class BaseDatosOH extends SQLiteOpenHelper {
         db.execSQL("insert or ignore into especialidad values(2,'Tacos y Antojitos Mexicanos',1)");
         db.execSQL("insert or ignore into especialidad values(4,'Comida China',1)");
         db.execSQL("insert or ignore into especialidad values(5,'Comida Japonesa',1)");
-        db.execSQL("insert or ignore into especialidad values(6,'Fast Food',1)");
+        db.execSQL("insert or ignore into especialidad values(6,'Pasteleria y Panaderia',1)");
         db.execSQL("insert or ignore into especialidad values(7,'Hamburguesas',1)");
-        db.execSQL("insert or ignore into especialidad values(8,'Ensaladas',1)");
         db.execSQL("insert or ignore into especialidad values(9,'Alitas',1)");
         db.execSQL("insert or ignore into especialidad values(10,'Pizzas',1)");
-        db.execSQL("insert or ignore into especialidad values(12,'Comida Italiana',1)");
-        db.execSQL("insert or ignore into especialidad values(13,'Crepas',1)");
         db.execSQL("insert or ignore into especialidad values(14,'Postres',1)");
 
         //db.execSQL("insert or ignore into ");

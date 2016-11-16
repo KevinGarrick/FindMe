@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.neck.findme.HomeActivity;
 import com.neck.findme.R;
 import com.neck.findme.adapters.EstablecimientoAdapterD;
 import com.neck.findme.adapters.ProductoAdapterD;
@@ -52,6 +53,7 @@ public class ProductosFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stores, container, false);
         Especialidad mEsp = new Especialidad();
         eList = (ListView)view.findViewById(R.id.list_establecimientos);
+        ((HomeActivity)getContext()).setTitle("Productos");
         // Inicializar el adaptador con la fuente de datos.
         /*eAdapter = new EspecialidadAdapter(getActivity(),
                 mEsp.getEspecialidades(this.getContext()));*/

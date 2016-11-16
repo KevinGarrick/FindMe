@@ -157,8 +157,7 @@ public class HomeActivity extends AppCompatActivity {
            //fm.popBackStackImmediate();
             fm.popBackStack();
         } else {
-            /*Log.i("MainActivity", "nothing on backstack, calling super");
-            super.onBackPressed();*/
+            this.moveTaskToBack(true);
         }
     }
 

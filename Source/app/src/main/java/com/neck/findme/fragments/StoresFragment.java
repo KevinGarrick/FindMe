@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 
+import com.neck.findme.HomeActivity;
 import com.neck.findme.R;
 import com.neck.findme.adapters.EspecialidadAdapter;
 import com.neck.findme.adapters.EstablecimientoAdapterD;
@@ -56,7 +57,7 @@ public class StoresFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stores, container, false);
         eList = (ListView)view.findViewById(R.id.list_establecimientos);
         // Inicializar el adaptador con la fuente de datos.
-
+        ((HomeActivity)getContext()).setTitle("Locales");
         eAdapter = new EstablecimientoAdapterD(getActivity(),
                 EstablecimientosRepo.getInstance(bundle.getInt("eId")).getEstablecimientos());
         //Relacionando la lista con el adaptador

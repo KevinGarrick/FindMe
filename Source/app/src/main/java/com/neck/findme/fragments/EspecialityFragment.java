@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.neck.findme.HomeActivity;
 import com.neck.findme.R;
 import com.neck.findme.adapters.EspecialidadAdapter;
 import com.neck.findme.modelo.Especialidad;
@@ -48,11 +49,11 @@ public class EspecialityFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_especiality, container, false);
         Especialidad mEsp = new Especialidad();
-        eList = (ListView)view.findViewById(R.id.list_especialidades);
+        eList = (ListView) view.findViewById(R.id.list_especialidades);
         // Inicializar el adaptador con la fuente de datos.
         eAdapter = new EspecialidadAdapter(getActivity(),
                 mEsp.getEspecialidades(view.getContext()));
-
+        ((HomeActivity) getContext()).setTitle("Especialidades");
         //Relacionando la lista con el adaptador
         eList.setAdapter(eAdapter);
         eList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,7 +63,7 @@ public class EspecialityFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 Bundle args = new Bundle();
                 Fragment fragment = null;
-                args.putInt("eId",currentEsp.getId());
+                args.putInt("eId", currentEsp.getId());
                 fragment = StoresFragment.newInstance("Locales", currentEsp.getId());
                 fragment.setArguments(args);
                 fragmentManager

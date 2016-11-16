@@ -68,7 +68,9 @@
                 android:id="@+id/tv_teléfono_est"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bgPrimaryColor"
                 tools:text="01 55 5881 0346" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

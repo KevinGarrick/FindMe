@@ -54,7 +54,7 @@
                     android:background="@drawable/top_radius"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:text="sauk_slick17@hotmail.com"/>
+                    />
 
                 <EditText
                     android:id="@+id/et_pswd"
@@ -67,7 +67,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_margin="0dp"
                     android:maxLines="1"
-                    android:text="12345"/>
+                   />
 
                 <Button
                     android:id="@+id/btn_login"

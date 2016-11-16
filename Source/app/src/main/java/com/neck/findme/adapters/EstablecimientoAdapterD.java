@@ -68,7 +68,7 @@ public class EstablecimientoAdapterD extends ArrayAdapter<DumyEstablecimiento> {
         ir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+dEst.getCoordX()+","+dEst.getCoordY()+",19z");
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+dEst.getCoordX()+","+dEst.getCoordY()+",19z("+dEst.getNombre().replace(" ","+")+")");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 view.getContext().startActivity(mapIntent);
@@ -86,6 +86,16 @@ public class EstablecimientoAdapterD extends ArrayAdapter<DumyEstablecimiento> {
                         .beginTransaction()
                         .replace(R.id.main_content, fragment).addToBackStack(null)
                         .commit();
+            }
+        });
+        tel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if(!dEst.getTelefono().contains("N")){
+                   Intent callIntent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+dEst.getTelefono().trim()));
+                   view.getContext().startActivity(callIntent);
+               }
+
             }
         });
         return convertView;
